@@ -32,15 +32,30 @@ console.log(SALUTATION, person);
 
 //  실행 결과 : Hello, 영희
 
-let 언디파인;
-
-console.log(언디파인);
+let value;
+console.log(value);
 
 /* 실행 결과
  undefined
  주요 개념
 변수는 선언과 동시에 undefined로 초기화 된다.
 */
+
+let value2 = undefined;
+if (value2 === null) {
+    // 이 블록은 실행되지 않음, value는 undefined이므로 null과 정확히 같지 않음
+}
+if (value2 == null) {
+    // 이 블록은 실행됨, == 연산자는 타입 변환을 수행하므로 null과 undefined를 동등하게 취급
+}
+
+// 주요 개념
+// undefined는 타입이자 값이다.
+// undefined는 변수를 초기화 할 때 사용한다.
+// null은 타입이자 값이다.
+// null은 주로 무언가가 있는데 사용할 준비가 덜 된 상태를 나타낼 때 사용한다.
+// null은 typeof 연산자를 사용하면 object를 반환한다.
+
 
 // 한줄에 여러개의 선언도 가능하다
 let a = 1,
