@@ -52,8 +52,16 @@ function fact(x) {
 
 console.log(fact(1), fact(2), fact(3), fact(4));
 
+
+
 // 즉시 실행 함수 IIFE
 // Immideately Invoked Function Expression
+// 즉시 실행 함수 IIFE 의 사용이유
+// 딱 한 번만 사용될 함수에
+// 전역 변수들을 사용하지 않고, 복잡한 기능을 일회성으로 실행할 때
+// 다른 코드들과의 변수명이나 상수명 충돌을 막기 위함 (특히 많은 코드들이 사용될 때)
+// 오늘날에는 블록과 이후 배울 모듈의 사용으로 대체
+
 (function () {
   console.log("IIFE");
 })();
@@ -63,11 +71,7 @@ console.log(fact(1), fact(2), fact(3), fact(4));
 // 실행결과
 // IIFE
 
-// 즉시 실행 함수 IIFE 의 사용이유
-// 딱 한 번만 사용될 함수에
-// 전역 변수들을 사용하지 않고, 복잡한 기능을 일회성으로 실행할 때
-// 다른 코드들과의 변수명이나 상수명 충돌을 막기 위함 (특히 많은 코드들이 사용될 때)
-// 오늘날에는 블록과 이후 배울 모듈의 사용으로 대체
+
 
 const initialMessage = (function () {
   // ⚠️ var를 사용함에 주목
@@ -87,11 +91,16 @@ console.log(initialMessage);
 
 // 실행결과
 // 8월 15일 평균기온은 섭씨 29.25도입니다.
-//  console.log(month); 는 레퍼러스 에러가 발생함
-// ReferenceError: month is not defined
-// 주요내용
-// var는 전역변수로 선언되기 때문에 원래는 출력되어야함
 
+// 만약 함수 밖에서 console.log(month); 를 실행시에는
+// 레퍼러스 에러가 발생함
+// ReferenceError: month is not defined
+// var는 전역변수로 원래는 실행되어야함
+// 그러나 즉시실행 함수로 아니면 원래는 출력되어야 하지만 
+// 즉시실행함수로 만들었기 때문에 스코프가 함수내부로 제한되었다
+
+
+// 불변성  immutability
 let x = 1;
 let y = {
   name: "홍길동",
@@ -100,20 +109,20 @@ let y = {
 let z = [1, 2, 3];
 
 function changeValue(a, b, c) {
-  a++;
-  b.name = "전우치";
-  b.age++;
-  c[0]++;
+  a++;          // 원시값인 숫자는 값이 복사되어 전달되기 때문에 외부에 영향을 주지 않음
+  b.name = "전우치"; // 객체는 참조값이 복사되어 전달되기 때문에 객체 내부의 값이 변경되면 외부에도 영향을 줌
+  b.age++;      // 객체의 프로퍼티가 변경되어 외부에도 영향을 줌
+  c[0]++;       // 배열도 참조값이 복사되어 전달되기 때문에 배열 내부의 값이 변경되면 외부에도 영향을 줌
 
   console.log(a, b, c);
 }
-
+console.log(x, y, z);
 changeValue(x, y, z);
 console.log(x, y, z);
 // 실행결과
-
-//2 { name: '전우치', age: 16 } [ 2, 2, 3 ]
-//1 { name: '전우치', age: 16 } [ 2, 2, 3 ]
+// 1 { name: '홍길동', age: 15 } [ 1, 2, 3 ]
+// 2 { name: '전우치', age: 16 } [ 2, 2, 3 ]
+// 1 { name: '전우치', age: 16 } [ 2, 2, 3 ]
 // 주요 내용
 // 원시값은 값이 복사되어 전달되고 객체는 참조값이 복사되어 전달됨
 // 원시값은 함수 내에서 변경되어도 외부에 영향을 주지 않음
