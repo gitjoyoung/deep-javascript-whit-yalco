@@ -214,8 +214,6 @@ console.log(product2, product3);
 //실행결과
 // { name: '선풍기', price: 50000, quantity: 50 } { name: '청소기', price: 125000, quantity: 32 }
 
-
-
 // 일반 함수 프로퍼티 정의
 // 메서드 method - 객체에 축약표현으로 정의된 함수 프로퍼티
 
@@ -232,12 +230,11 @@ console.log(person.salutate(true)); // 안녕하십니까, 홍길동입니다.
 
 // 주요내용
 // 이전에는 객체에 축약표현으로 정의된 함수를 모두 메서드라고 불렀지만
-
-
 // es6에서의 메서드는
+ // 아래와 같은 방식으로 선언한 함수만 메서드로 부르기로 함
+
 const person2 = {
   name: "홍길동",
-// 이런식의 으로 선언한 것만 메서드로 부르기로 함
   salutate(formal) {
     return formal
       ? `안녕하십니까, ${this.name}입니다.`
