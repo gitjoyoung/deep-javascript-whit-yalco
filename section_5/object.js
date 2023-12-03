@@ -1,6 +1,7 @@
 // 객체의 기본 사용법들
 
 //객체 생성과 프로퍼티 접근
+// 마침표 프로퍼티 or 대괄호 프로퍼티
 const food1 = {
   name: "햄버거",
   price: 5000,
@@ -241,4 +242,5 @@ const person2 = {
       : `안녕하세요, ${this.name}이에요.`;
   },
 };
-console.log(person2.salutate(true));
+console.log(person2.salutate(true)); // 안녕하십니까, 홍길동입니다.
+
