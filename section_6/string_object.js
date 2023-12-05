@@ -192,3 +192,130 @@ console.log(word4.substring(-1), word4.substring(4, 100), word4.substring(100));
 
 // 인자를 하나만 넣으면 해당 인덱스부터 끝까지
 // 음수나 범위 외 숫자는 범위 내 최소/최대 숫자로
+
+// const sentence = '옛날에 호랑이 한 마리가 살았어요.';
+
+// 0 인덱스 부터  " " 공백까지 짜른다 공백이 포함됨
+const firstWord = sentence.substring(0, sentence.indexOf(" "));
+
+// 마지막 공백의 자리에 1를 더한 값으로 이렇게 한 이유는 공백을 제거하기위해
+//  문장의 길이만큼
+const lastWord = sentence.substring(
+  sentence.lastIndexOf(" ") + 1,
+  sentence.length
+);
+
+console.log(firstWord, lastWord);
+
+// 옛날에 살았어요.
+
+// slice
+// substring과 같으나 음수로 뒤에서부터 자를 수 있음
+const word5 = "ABCDEFGHIJKL";
+
+console.log(word5.substring(4, 8), word5.slice(4, 8));
+// substring , slice 같은효과
+// EFGH EFGH
+
+console.log(word5.substring(-4), word5.slice(-4));
+// ABCDEFGHIJKL IJKL
+
+const firstWord2 = sentence.slice(0, sentence.indexOf(" "));
+
+// slice는 음수로 넣어서 사용할 수 있다
+
+// const sentence = "옛날에 호랑이 한 마리가 살았어요.";
+const lastWord2 = sentence.slice(
+  sentence.lastIndexOf(" ") + 1 - sentence.length
+);
+
+console.log(firstWord2, lastWord2);
+// 옛날에 살았어요.
+
+// split
+// 인수로 주어진 문자열이나 정규표현식으로 분리하여 배열을 반환
+console.log("010-1234-5678".split("-"), "ABC1DEF2GHI3JKL".split(/[0-9]/));
+
+// 인자로 빈 문자열을 넣거나 인자 생략시
+const word6 = "안녕하세요";
+
+console.log(word6.split(""), word6.split());
+// [ '안', '녕', '하', '세', '요' ] [ '안녕하세요' ]
+const word7 = "하나 하면 할머니가 지팡이 짚고서 잘잘잘";
+
+// 몇개까지 출력해줄 건지
+console.log(word7.split(" ", 2), word7.split(" ", 4));
+// [ '하나', '하면' ] [ '하나', '하면', '할머니가', '지팡이' ]
+
+// const sentence = '옛날에 호랑이 한 마리가 살았어요.';
+const splitted = sentence.split(" ");
+
+const firstWord3 = splitted[0];
+const lastWord3 = splitted[splitted.length - 1];
+
+console.log(firstWord3, lastWord3);
+// 옛날에 살았어요.
+
+// trim, trimStart, trimEnd
+// 앞뒤의 공백 제거하여 반환
+
+const word8 = "  Hello World!  ";
+console.log(`--${word8}--`);
+console.log(`--${word8.trim()}--`);
+console.log(`--${word8.trimStart()}--`);
+console.log(`--${word8.trimEnd()}--`);
+// --  Hello World!  --
+// --Hello World!--
+// --Hello World!  --
+// --  Hello World!--
+
+// repeat
+// 인자로 주어진 정수만큼 문자열을 반복하여 반환
+const word9 = "호이";
+
+console.log(word9.repeat(3)); // 호이호이호이
+console.log(word9.repeat(0)); // 아무것도 안나옴
+console.log(word9.repeat()); // 아무것도 안나옴
+
+// console.log(word9.repeat(-1));
+// 인수가 없거나 0이면 빈 문자열 반환, 음수면 오류 발생
+
+// replace, replaceAll
+// 첫 번째 인자로 받은 문자열 또는 정규식을 두 번째 인자로 치환한 결과를 반환
+
+console.log("이스탄불은 터키의 수도이다.".replace("터키", "튀르키예"));
+// 이스탄불은 튀르키예의 수도이다.
+
+const w = "밥 좀 먹자, 밥. 응? 야, 밥 좀 먹자고 밥, 밥!";
+
+//replace의 첫 인자가 문자열이면 일치하는 첫 부분만 치환
+// 모두 치환하려면 정규식 /.../g 사용
+console.log(w.replace("밥", "라면"));
+console.log(w.replace(/밥/g, "라면"));
+
+// replaceAll은 문자열도 자동으로 /.../g처럼 인식
+
+console.log(w.replaceAll("밥", "라면"));
+console.log(w.replaceAll(/밥/g, "라면"));
+// 라면 좀 먹자, 밥. 응? 야, 밥 좀 먹자고 밥, 밥!
+// 라면 좀 먹자, 라면. 응? 야, 라면 좀 먹자고 라면, 라면!
+// 라면 좀 먹자, 라면. 응? 야, 라면 좀 먹자고 라면, 라면!
+// 라면 좀 먹자, 라면. 응? 야, 라면 좀 먹자고 라면, 라면!
+
+const ww = " 모두 HELLO! ";
+const rpFrom = "hello";
+const rpTo = "bye";
+
+// 메서드 체이닝 method chaining
+// 위같은 기능을 메서드 체이닝을 통해 연속으로 사용 할 수 있음
+console.log(
+  ww
+    .trimStart() // '모두 HELLO! '
+    .toLowerCase() // '모두 hello! '
+    .replaceAll(rpFrom, rpTo) // '모두 bye! '
+    .toUpperCase() // '모두 BYE! '
+    .repeat(3) // '모두 BYE! 모두 BYE! 모두 BYE! '
+    .trimEnd() // '모두 BYE! 모두 BYE! 모두 BYE!'
+);
+// 모두 BYE! 모두 BYE! 모두 BYE!
+console.log(ww); // 원본은 그대로
