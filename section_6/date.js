@@ -206,7 +206,8 @@ console.log(now.toString());
 // 현재시각으로 맞추기
 const now3 = new Date();
 const timezoneOffset = now3.getTimezoneOffset() * 60000;
-
+console.log(timezoneOffset );
+// -32400000
 const isoStr = new Date(now3.getTime() - timezoneOffset).toISOString();
 
 console.log(isoStr);
