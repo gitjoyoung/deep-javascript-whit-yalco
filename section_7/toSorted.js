@@ -18,7 +18,7 @@ const array2 = [...array1];
 console.log(array1, array2);
 // [ 3, 1, 4, 5, 2 ] [ 3, 1, 4, 5, 2 ]
 
-const array1Sorted = array1.sort(); // 새 배열 반환해주지 않고 주소값을 전달해줌 깊은복사
+const array1Sorted = array1.sort(); // 새 배열 반환이 아닌 얕은 복사 레퍼런스 복사
 const array2Sorted = array2.toSorted();
 
 console.log(array1Sorted, array2Sorted);
@@ -35,7 +35,7 @@ console.log(array1, array2);
 // array2는 toSorted 를 사용하였기 때문에 원본배열이 변경되지 않음
 
 
-// es14 전에는...
+// es14 전에는  sort 를 실행하면 원본배열이 수정되었기 때문에 원본배열 수정을 원치 않으면 배열을 깊은복사해서 사용했어야 한다
 array3 = [3, 1, 4, 5, 2];
 array3Sorted = [...array3].sort(); // 이제는 이렇게 할 필요 없음
 
