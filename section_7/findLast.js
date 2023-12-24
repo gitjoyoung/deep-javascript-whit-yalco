@@ -21,6 +21,8 @@ const lastMult3Idx = myArray.lastIndexOf(
 console.log(lastMult3, lastMult3Idx);
 // 9 8
 
+
+// 신문법 사용법
 const lastMult4 = myArray.findLast((i) => i % 3 === 0);
 const lastMult4Idx = myArray.findLastIndex((i) => i % 3 === 0);
 
