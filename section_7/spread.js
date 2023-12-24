@@ -83,8 +83,8 @@ const ar6 = [...ar5];
 
 ar5[0].x = 0;
 console.log(ar5, ar6);
-
 // [ { x: 0 }, { x: 2 } ] [ { x: 0 }, { x: 2 } ]
+
 console.log(ar5 === ar6);
 //false
 
