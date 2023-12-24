@@ -2,11 +2,10 @@
 // freeze - 객체 동결 - 읽기만 가능
 // 그러나 deth 가 깊어지면 프리징이 안됨
 
-// isFrozen - 해당 여부 확인
-
 // 객체에 사용
 const obj = { x: 1, y: 2 };
 
+// isFrozen - 해당 여부 확인
 console.log(Object.isFrozen(obj));
 // false
 
