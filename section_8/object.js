@@ -1,5 +1,6 @@
 // Object 클래스
-// 이제까지 배운 자바스크립트 객체들의 원형
+// 이제까지 배운 자바스크립트 객체들의 원형\
+
 
 console.log(
   new String("ABC") instanceof Object,
