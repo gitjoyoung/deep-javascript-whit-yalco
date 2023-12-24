@@ -2,10 +2,9 @@
 // preventExtensions - 프로퍼티 추가 금지
 // 이미 존재하는 값은 수정 및 삭제 가능
 
-// isExtensible - 해당 여부 확인
-
 const preventObj = { x: 1, y: 2 };
 
+// isExtensible - 해당 여부 확인
 console.log(Object.isExtensible(preventObj));
 // true
 
