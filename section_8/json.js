@@ -2,7 +2,7 @@
 // 복잡한 구조를 가질 수 있는 데이터를 한 줄의 문자열로 표현
 // 서버와 클라이언트 등 데이터들을 주고받는 주체들 사이에 널리 사용
 
-// JSON 객체의 정적 메서드
+// JSON 내장 객체의 정적 메서드
 // 1. stringify - 객체를 문자열로 직렬화 serialize
 // 👉 MDN 문서 보기
 
@@ -133,14 +133,17 @@ const obj3 = {
     },
   },
 };
-
+// 출력결과에 공백을 붙여줌
 [
   JSON.stringify(obj3, null),
   JSON.stringify(obj3, null, 1),
   JSON.stringify(obj3, null, 2),
   JSON.stringify(obj3, null, "\t"),
 ].forEach((i) => console.log(i));
+// JSON.stringify(obj3, null),
+// {"a":1,"b":{"c":2,"d":{"e":3}}}
 
+// JSON.stringify(obj3, null, 1),
 //   {
 //     "a": 1,
 //     "b": {
@@ -150,6 +153,7 @@ const obj3 = {
 //      }
 //     }
 //    }
+// JSON.stringify(obj3, null, 2),
 //    {
 //      "a": 1,
 //      "b": {
@@ -159,6 +163,7 @@ const obj3 = {
 //        }
 //      }
 //    }
+//   JSON.stringify(obj3, null, "\t"),
 //    {
 //        "a": 1,
 //        "b": {
@@ -169,6 +174,8 @@ const obj3 = {
 //        }
 //    }
 
+// 사용자 정의 직렬화 하기위해 객체 내부에 toJSON으로 선언된 키값이 존재하면
+//  stringify 함수에서 에서 반환을하게됨
 const obj4 = {
   x: 1,
   y: 2,
@@ -178,7 +185,13 @@ const obj4 = {
 };
 
 console.log(JSON.stringify(obj4));
+
 // "훗, 나를 직렬화해보겠다는 건가"
+
+for(let  i in obj4){
+  console.log(i , obj[i])
+}
+
 
 // parse - 역직렬화
 
