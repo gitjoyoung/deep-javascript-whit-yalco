@@ -44,10 +44,11 @@ const obj3 = {
   // g: 1n // ⚠️ 오류 발생
 };
 
+// json 으로 직렬화 불가
 const obj4 = JSON.parse(JSON.stringify(obj3));
 
 console.log(obj3);
-console.log(obj4);
+console.log(obj4); 
 
 // {
 //   a: 1,
@@ -58,11 +59,12 @@ console.log(obj4);
 // }
 // { a: 1, b: 2, d: '2023-12-25T07:31:55.170Z' }
 
+
+
 //   structuredClone
 // 아직은 일부 브라우저(Web API 형태로) 및 환경에서만 지원
 // JSON 방식보다 빠르고 효율적인 깊은 복사
 // Date와 BigInt 제대로 복사 - 함수와 Symbol은 여전히 불가
-// 👉 MDN 문서 보기
 
 const obj5 = {
   a: 1,
