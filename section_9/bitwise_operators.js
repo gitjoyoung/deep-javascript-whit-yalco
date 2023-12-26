@@ -81,6 +81,7 @@ for (let i = 0; i < 5; i++) {
   z = z >> 1;
   console.log(z.toString(2), z);
 }
+
 // 1010000 80
 // 101000 40
 // 10100 20
