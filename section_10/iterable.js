@@ -141,6 +141,9 @@ function fiboIterator() {
   };
 }
 
+// 피보나치 객체를 생성하고  [Symbol.iterator] 특수한 심볼에 이터레이터를 넣어주면  
+// 이터러블 객체
+
 const fibonacci = {
   [Symbol.iterator]: fiboIterator,
 };
