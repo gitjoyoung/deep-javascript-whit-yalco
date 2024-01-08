@@ -12,6 +12,7 @@ notDeclared = 1; // 💡 암묵적으로 전역 var 변수로 선언
 
 notDec1 = 1;
 
+// 함수내 선언가능
 function strictFunc() {
   "use strict";
 
@@ -22,16 +23,17 @@ function strictFunc() {
 console.log(notDec1);
 // 1
 
-strictFunc();
+// strictFunc();
 // ReferenceError: notDec2 is not defined
 
 // 변수, 함수, 인자 등 삭제불가한 것을 삭제시 오류 발생
 // 실제로 지워지지도 않지만 오류를 발생시키지도 않음
-
 let toDelete1 = 1;
 delete toDelete1;
 
 console.log("1.", toDelete1);
+
+//1. 1
 
 function funcToDel1() {
   console.log(true);
@@ -39,10 +41,16 @@ function funcToDel1() {
 delete funcToDel1;
 
 console.log("2.", funcToDel1);
+// 2. [Function: funcToDel1]
 
-// 인자명 중복시 오류 발생
+// strict 모드에서는 인자명 중복시 오류 발생
 function add(x, x) {
   return x + x;
 }
 
 console.log(add(1, 2));
+// 4
+
+// 실무에서의 엄격 모드
+// 클래스나 모듈(등 ES6와 그 이후의 기능들) 사용시 엄격 모드가 기본으로 적용됨
+// 🪄 모든 문제를 방지하는 수단이 되지 않음 기억

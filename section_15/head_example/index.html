@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>제대로 파는 자바스크립트</title>
+    <!-- <script defer src="./script.js">
+      // BODY 가 로드되기전에 실행하였기 때문에 바뀌지 않음
+    </script> -->
+
+    <script defer>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector("span").innerText = "텍스트 변경됨";
+      });
+    </script>
+    <!-- <script async >
+      // window.onload 로 실행하면 변경됨
+      window.onload = function () {
+        document.querySelector("span").innerText = "텍스트 변경됨";
+      };
+    </script> -->
+  </head>
+  <body>
+    <span>변경 전...</span>
+  </body>
+</html>
