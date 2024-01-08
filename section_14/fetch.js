@@ -118,6 +118,7 @@ const SERVER_URL = "https://showcases.yalco.kr/javascript/mockserver/";
 // // async, await으로 구현
 
 async function getWinnersSchool() {
+  
   const raceResult = await fetch(SERVER_URL + "race-result").then((result) =>
     result.json()
   );
