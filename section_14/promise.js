@@ -33,7 +33,7 @@
 // 완주 실패시 😢 완주 실패 - ${전체 소요시간} 출력
 // 실패든 성공이든 마지막에 - - 경기 종료 - - 출력
 
-const DEADLINE = 1400;
+const DEADLINE = 1500;
 
 function relayRun(name, start, nextFunc, failMsg) {
   console.log(`👟 ${name} 출발`);
