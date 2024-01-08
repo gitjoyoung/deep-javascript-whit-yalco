@@ -7,6 +7,7 @@
 const obj = {};
 
 console.log(obj);
+// {}
 
 // 노드 출력에서는 그냥 객체만 뜸
 // 브라우저에서 [[Prototype]] 펼쳐서 살펴볼 것
@@ -36,9 +37,10 @@ console.log(new Map());
 console.log({});
 // {}
 
-// 프로토타입 체인
-// 특정 객체에 호출된 프로퍼티가 없다면 프로토타입을 거슬러 올라감
-// 예: Array에는 valueOf가 없지만 그 프로토타입인 Object에는 있으므로 호출 가능
+/**  프로토타입 체인
+특정 객체에 호출된 프로퍼티가 없다면 프로토타입을 거슬러 올라감
+예: Array에는 valueOf가 없지만 그 프로토타입인 Object에는 있으므로 호출 가능
+**/
 
 // __proto__ 접근자 사용 - Object.prototype의 프로퍼티
 // mdn 문서에는 지원이 중단되었습니다 라고 표기 일부
@@ -54,12 +56,12 @@ console.log([1, 2, 3].__proto__);
 
 // 같은 종류는 프로토타입 공유 확인
 console.log({}.__proto__ === { x: 1, y: 2 }.__proto__);
+// true
 
 console.log([1, 2, 3].__proto__ === [4, 5].__proto__);
+// true
 
 console.log(new String("가나다").__proto__ === new String("ABC").__proto__);
-// true
-// true
 // true
 
 // 최상위, 공통조상은 Object임 확인
@@ -93,7 +95,7 @@ console.log(Object.getPrototypeOf([]) === [].__proto__);
 // true
 
 // ⭐ 생성자 함수에서는 prototype으로 프로토타입 접근 가능
-// 즉 function으로 선언된 함수들에서
+// 즉 function으로 선언된 함수들에서 [[Prototype]]이 두 단계로 있음 확인 (Person - Object)
 
 function Person(name) {
   this.name = name;
@@ -109,16 +111,15 @@ console.log(hong);
 // [[Prototype]]이 두 단계로 있음 확인 (Person - Object)
 
 console.log(String.prototype);
-
+// {}
 console.log(Number.prototype);
+// {}
 
 console.log(Set.prototype);
-
-// 생성자 함수로 동작하지 않는 빌트인 객체
-console.log(Math.prototype);
-// {}
-// {}
 // Object [Set] {}
+// 생성자 함수로 동작하지 않는 빌트인 객체
+
+console.log(Math.prototype);
 // undefined
 
 // 인스턴스 vs 프로토타입 프로퍼티
@@ -145,6 +146,7 @@ console.log(new YalcoChicken("강남", 17).introEng());
 // Welcome to Yalco Chicken at 강남!
 
 // 인스턴스의 로그를 펼쳐 각 함수가 속한 레벨 확인
+
 console.log(chain1);
 // YalcoChicken { name: '판교', no: 3, introduce: [Function (anonymous)] }
 
